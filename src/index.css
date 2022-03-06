@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+#root{
+  width: 100vw;
+  height: 100vh;
+  background: url(../public/backgroundImg.jpeg) rgba(15,8,16,.8) no-repeat;
+  /* background-color: #f00; */
+  background-position: center top;
+  background-size:auto 100%;
+  overflow: auto;
+  color: #fff;
+}

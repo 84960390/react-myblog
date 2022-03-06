@@ -1,0 +1,41 @@
+.showPic{
+    margin-bottom: 30px;
+    .back{
+        position: fixed;
+        text-align: center;
+        line-height: 36px;
+        top:80px;
+        left:30px;
+        width: 36px;
+        height: 36px;
+        background-color: rgb(35,35,44);
+        border-radius: 10px;
+        @media screen and (max-width: 700px) {
+            display: none;
+        }
+        &:hover{
+            background-color: rgb(97,147,187);
+        }
+    }
+    .box{
+        box-sizing: border-box;
+        width: 80%;
+        padding: 30px 20px 10px;
+        margin: 0 auto;
+        border-radius: 20px;
+        background-color: rgb(35, 35, 44);
+        min-height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+        @media screen and (max-width: 700px) {
+            width: 100%;
+            padding-left: 10px;
+        }
+        .picItem{
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.pageTitle{
+    height: 380px;
+    font-size: 52px;
+    text-align: center;
+    line-height: 380px;
+    @media screen and (max-width:700px){
+        height: 220px;
+        font-size: 30px;
+        text-align: center;
+        line-height: 220px;
+    }
+}

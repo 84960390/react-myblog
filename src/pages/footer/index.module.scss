@@ -1,0 +1,17 @@
+footer{
+    height: 120px;
+    font-size: 16px;
+    font-weight: 200;
+    background-color: rgba(0,0,0,.7);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    span{
+        padding:5px 20px;
+        &:hover{
+            background-color: rgb(103,146,186);
+            border-radius: 5px;
+        }
+    }
+}

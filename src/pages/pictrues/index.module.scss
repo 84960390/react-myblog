@@ -1,0 +1,67 @@
+.pictures{
+    margin-bottom: 50px;
+    @media screen and (max-width:700px) {
+        height: calc(100vh - 120px);
+        margin-bottom: 0;
+    }
+    .classifyBox{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-content: space-around;
+        width: 80%;
+        margin:0 auto;
+        height: 600px;
+        border-radius:20px;
+        background-color: rgb(35,35,44);
+        @media screen and(max-width:700px){
+            height: 230px;
+            width: 100%;
+        }
+        .classifyItem{
+            width: 44%;
+            height: 220px;
+            @media screen and(max-width:700px){
+                height: 100px;
+            }
+            border-radius: 15px;
+            background-color: #f00;
+            transition: all 0.3s;
+            box-sizing: border-box;
+            padding: 20px 80px 20px 20px;
+            h2{
+                color: #fff;
+                
+            }
+            h3{
+                visibility: hidden;
+                color: #fff;
+            }
+            &:nth-child(1){
+                background:url(./resource/scene.jpg) no-repeat;
+                background-size: 100% 100%;
+            }
+            &:nth-child(2){
+                background:url(./resource/technical.jpg) no-repeat;
+                background-size: 100% 100%;
+            }
+            &:nth-child(3){
+                background:url(./resource/game.jpeg) no-repeat;
+                background-size: 100% 100%;
+            }
+            &:nth-child(4){
+                background:url(./resource/cartoon.jpeg) no-repeat;
+                background-size: 100% 100%;
+            }
+            &:hover{
+                transform: scale(102%);
+                h2{
+                    border-bottom: 3px solid #fff;
+                }
+                h3{
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}

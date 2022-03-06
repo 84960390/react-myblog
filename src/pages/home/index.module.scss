@@ -1,0 +1,191 @@
+.home{
+    width: 100%;
+    .welcome{
+        @media screen and (max-width:700px){
+            height: 300px;
+        }
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        color: #fff;
+        align-items:center;
+        .top{
+            font-size: 52px;
+        }
+        .tips{
+            font-size: 28px;
+        }
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        
+        .left{
+        
+            width: 75%;
+            @media screen and (max-width:700px){
+                width: 100%;
+            }
+            .article{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-sizing: border-box;
+                padding: 10px;
+                min-height: 100px;
+                margin-bottom: 25px;
+                background-color: rgb(35,35,44);
+                border-radius: 20px;
+                transition: all 0.5s;
+                &:hover{
+                transform: scale(102%);
+                }
+                .articleTitle{
+                    color: #fff;
+                    line-height: 40px;
+                    height: 40px;
+                    text-align: center;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    word-break: keep-all;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .articleContext{
+                    max-height: 100px;
+                    // margin-top: 10px;
+                    margin-bottom: 10px;
+                    color: rgb(223,223,223);
+                    text-indent: 2em;
+                    font-size: 14px;
+                    line-height: 14px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    word-break: break-all;
+                }
+                .bottom{
+                    height: 30px;
+                    overflow: hidden;
+                    .time,
+                    .type{
+                        height: 100%;
+                        padding: 5px 10px;
+                        background-color: rgb(19,19,26);
+                        border-radius: 10px;
+                        &:hover{
+                            background-color: rgb(97,147,187);
+                        }
+                    }
+                    .time{
+                        float: left;
+                    }
+                    .type{
+                        float: right;
+                    }
+                }
+            }
+            
+        }
+        .right{
+            width: 20%;
+            .tagBox{
+                box-sizing: border-box;
+                margin-bottom: 25px;
+                background-color: rgb(35,35,44);
+                border-radius: 20px;
+                transition: all 0.5s;
+                padding: 10px;
+                &:hover{
+                transform: scale(102%);
+                }
+            }
+            @media screen and (max-width:700px){
+                display: none;
+            }
+            .wel{
+                height: 200px;
+            }
+            .information{
+                height: 80px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                font-size: 24px;
+                text-align: center;
+                line-height: 40px;
+                .qq,
+                .wechat,
+                .github{
+                    width: 40px;
+                    height: 40px;
+                    color: #fff;
+                    &:hover{
+                        background-color: rgb(97,147,187);
+                        border-radius: 10px;
+                    }
+                
+                }
+                .qq,
+                .wechat{
+                    position: relative;
+                    &:hover{
+                        .codeBox{
+                            display: block;
+                        }
+                    }
+                   
+                }
+                .codeBox{
+                    position: absolute;
+                    display: none;
+                    left: 50%;
+                    bottom: 50px;
+                    // display: none;
+                    padding: 10px;
+                    width: 150px;
+                    height: 150px;
+                    background-color: rgb(95,145,184);
+                    border-radius: 20px;
+                    transition: all 1s;
+                    transform: translateX(-50%);
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 10px;
+                    }
+                }
+
+            }
+            .classify{
+                height: 80px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                text-align: center;
+                .box1{
+                    width: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .num{
+                        color: rgb(97,147,187);
+                    }
+                }
+                
+            }
+            .statics{
+                height: 110px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                .sumBox{
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+            }
+        }
+        
+    }
+}

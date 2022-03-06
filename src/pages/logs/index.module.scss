@@ -1,0 +1,102 @@
+.logs{
+    margin-bottom: 30px;
+    // .title{
+    //     height: 440px;
+    //     font-size: 52px;
+    //     text-align: center;
+    //     line-height: 440px;
+    //     @media screen and (max-width:700px){
+    //         height: 220px;
+    //         font-size: 30px;
+    //         text-align: center;
+    //         line-height: 220px;
+    //     }
+    // }
+    .logBox{
+        box-sizing: border-box;
+        width: 80%;
+        padding: 30px 20px 10px;
+        margin: 0 auto;
+        border-radius:20px;
+        background-color: rgb(35,35,44);
+        min-height: 300px;
+        @media screen and (max-width:700px) {
+            width: 100%;
+            padding-left: 10px;
+        }
+        .logItem{
+            &:last-child{
+                .bottom{
+                    .line::after{
+                        display: none;
+                    }
+                }
+            }
+           .top{
+               display: flex;
+               justify-content: flex-start;
+               &:hover{
+                   color: rgb(97,147,187);
+                   .round::after{
+                    background-color: rgb(97,147,187);
+                   }
+               }
+                height: 20px;
+                .round{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                    background-color: rgb(78,78,78);
+                    border-radius: 50%;
+                    position: relative;
+                    &::after{
+                        display: block;
+                        content: '';
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background-color: rgb(156,156,156);
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                    }
+                }
+                .time{
+                    line-height: 20px;
+                }
+           }
+           .bottom{
+               display: flex;
+    
+               .line{
+                    width: 20px;
+                    margin-right: 10px;
+                    position: relative;
+                    &::after{
+                        display: block;
+                        content: '';
+                        position: absolute;
+                        width: 3px;
+                        height: 100%;
+                        background-color: rgb(110,110,110);
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+               }
+               .context{
+                   flex: 1;
+                   font-size:10px;
+                   padding: 10px;
+                   margin: 10px 0;
+                   background-color: rgb(19,19,26);
+                   border-radius: 10px;
+                   transition: all 0.3s;
+                   &:hover{
+                       transform: scale(102%);
+                   }
+               }
+           }
+        }
+    }
+}
