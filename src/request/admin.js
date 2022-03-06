@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { message } from 'antd';
 
-const http=axios.create({
-    baseURL:'/api'
+const admin=axios.create({
+    baseURL:'/admin'
 })
-http.interceptors.response.use(
+admin.interceptors.response.use(
     res=>{
         return res.data;
     },
@@ -24,8 +24,8 @@ http.interceptors.response.use(
 					err.message = `请求地址出错`
 					break
 
-				case 408:
-					err.message = '请求超时'
+				case 422:
+					err.message = '账号或密码错误'
 					break
 
 				case 500:
@@ -59,4 +59,4 @@ http.interceptors.response.use(
 		return Promise.reject(err) // 返回接口返回的错误信息
     }
 )
-export default http;
+export default admin

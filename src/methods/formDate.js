@@ -3,7 +3,7 @@
     let date=new Date(time);
     let year=date.getFullYear();
     let mounth=date.getMonth()+1;
-    let day=date.getDay();
+    let day=date.getDate();
     let hours=date.getHours();
     let minuts=date.getMinutes();
     function numTo2(num){

@@ -40,7 +40,7 @@ function Header(props){
 
     return (
         <header>
-            <div className={style.left}><HomeOutlined  onClick={()=>{toPath('/')}}/></div>
+            <div className={style.left}><HomeOutlined  onClick={()=>{toPath(props.indexURL||'/')}}/></div>
             <div className={style.center}>
                 {   
                     props.list.map(item=>{
@@ -48,7 +48,7 @@ function Header(props){
                     })
                 }
             </div>
-            <div className={style.right} onClick={()=>{alert('开发中')}}><SettingOutlined /></div>
+            <div className={style.right} onClick={()=>histroy.push('/login')}><SettingOutlined /></div>
         </header>
     )
 }

@@ -12,6 +12,10 @@ import SelectArticle from '../pages/selectArticle';
 import UserPage from '../pages/userPage';
 import { Redirect } from 'react-router-dom';
 import Login from '../pages/login';
+import Admin from '../pages/admin';
+import AdminHome from '../pages/admin/adminHome';
+import AdminShare from '../pages/admin/adminShare';
+import AdminLogs from '../pages/admin/logs';
 const routes=[
    {
        path:'/',
@@ -61,11 +65,51 @@ const routes=[
             component:SelectArticle
         }
        ]
-   },
-   {
+   },{
        path:'/login',
        component:Login
-   }
+   },{
+    path:'/admin',
+    component:Admin,
+    routes:[
+        {
+            path:'/admin',
+            exact:true,
+            render:()=><Redirect to='admin/home'/>,
+        },
+        {
+            path:'/admin/home',
+            component:AdminHome
+        },{
+            path:'/admin/pictures',
+            component:Pictures
+        },{
+            path:'/admin/share',
+            component:AdminShare
+        },{
+            path:'/admin/logs',
+            component:AdminLogs
+        },{
+            path:'/admin/about',
+            component:About
+        },{
+            path:'/admin/message',
+            component:Message
+        },{
+            path:'/admin/addArticle',
+            component:AddArticle
+        },{
+            path:'/admin/addAlbum',
+            component:AddAlbum
+        },{
+            path:'/admin/article',
+            component:Article
+        },{
+            path:'/admin/selectArticle',
+            component:SelectArticle
+        }
+    ]
+}
     
 ]
 export default routes;

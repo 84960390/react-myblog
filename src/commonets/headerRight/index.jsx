@@ -42,7 +42,7 @@ function HeaderRight(props){
 
     return (
         <div className={style.rightHeader}>
-            <img className={style.head} src={props.myProfile} onClick={()=>toPath('/')}/>
+            <img className={style.head} src={props.myProfile} onClick={()=>toPath(props.indexURL||'/')}/>
             <div className={style.center}>
                 {   
                     props.list.map(item=>{

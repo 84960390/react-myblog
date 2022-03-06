@@ -9,5 +9,16 @@ module.exports=function(app){
             //     '^api':''
             // }
         })
-    )
+    );
+    app.use(
+        '/admin',
+        createProxyMiddleware({
+            target:'http://127.0.0.1:8088',
+            changeOrigin:true,
+            // pathRewrite:{
+            //     '^api':''
+            // }
+        })
+    );
+
 }

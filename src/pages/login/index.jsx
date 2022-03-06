@@ -1,17 +1,20 @@
 import './index.scss';
-import {useState,useRef} from 'react';
-// import {admin} from '../../request';
+import {useRef} from 'react';
+import admin from '../../request/admin';
 import { useHistory } from 'react-router-dom';
+import { message } from 'antd';
 function Login(){
     const account=useRef();
     const psw=useRef();
-    const histroy=useHistory
+    const histroy=useHistory();
     const login=()=>{
-        // admin.post('/login').then(res=>{
-        //     window.sessionStorage.setItem('userInfo',res.data.userInfo)
-        //     window.localStorage.setItem('token',res.data.token)
-        //     histroy.push('/admin')
-        // })
+        let account1=account.current.value;
+        let password1=psw.current.value;
+        if(account1===''||password1==='') return message.warning('请输入账号和密码')
+        admin.post('/adminLogin',{account:account1,password:password1}).then(res=>{
+            window.sessionStorage.setItem('state',res.state)
+            histroy.push('/admin')
+        })
     }
     return (
         <div className="login">

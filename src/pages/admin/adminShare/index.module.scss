@@ -1,0 +1,126 @@
+.share{
+    
+    margin-bottom: 50px;
+
+    .shareBox{
+        box-sizing: border-box;
+        width: 80%;
+        @media screen and (max-width:700px) {
+            width: 100%;
+        }
+        padding: 30px 20px 10px;
+        margin: 0 auto;
+        border-radius:20px;
+        background-color: rgb(35,35,44);
+        min-height: 300px;
+        .sendMessage {
+            height: 150px;
+            display: flex;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            .left {
+                width: 60px;
+                @media screen and (max-width: 700px) {
+                    width: 30px;
+                }
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 10px;
+                    @media screen and (max-width: 700px) {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+            .right {
+                flex: 1;
+                margin-left: 5px;
+                display: flex;
+                flex-direction: column;
+                .context {
+                    outline: none;
+                    border: none;
+                    flex: 1;
+                    background-color: rgb(19, 19, 26);
+                    border-radius: 20px;
+                    padding: 10px;
+                    margin: 20px 0;
+                    resize: none;
+                    @media screen and (max-width: 700px) {
+                        margin: 10px 0;
+                    }
+                }
+                .send {
+                    height: 26px;
+
+                    button {
+                        outline: none;
+                        border: none;
+                        width: 70px;
+                        height: 100%;
+                        background-color: rgb(69, 69, 88);
+                        border-radius: 8px;
+                        float: right;
+                        &:hover {
+                            background-color: rgb(97, 147, 187);
+                        }
+                    }
+                }
+            }
+        }
+        .shareItem{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            .left{
+                margin-right:20px;
+                img{
+                    @media screen and (max-width:700px) {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 10px;
+                }
+            }
+            .right{
+                flex: 1;
+                .content{
+                    word-break: break-all;
+                    box-sizing: border-box;
+                    padding: 10px 20px;
+                    background-color: rgb(19,19,26);
+                    transition: all 0.4s;
+                    border-radius: 10px;
+                    &:hover{
+                        transform: scale(102%);
+                    }
+                    .timeBox{
+                        height: 50px;
+                        position: relative;
+                        @media screen and (max-width:700px) {
+                            display: none;
+                        }
+                        .createTime{
+                            position: absolute;
+                            right: 0;
+                            bottom: 10px;
+                            height: 30px;
+                            line-height: 30px;
+                            border-radius: 10px;
+                            text-align: center;
+                            width: 130px;
+                            background-color: rgb(70,69,88);
+                            &:hover{
+                                background-color: rgb(103,146,186);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+   
+}

@@ -1,0 +1,14 @@
+.toLogin{
+    text-align: center;
+    width: 100%;
+    height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    div{
+        width: 100%;
+    }
+    .login{
+        color: rgb(224, 77, 9);
+        font-size: 22px;
+    }
+}
