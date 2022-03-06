@@ -13,6 +13,7 @@ function Login(){
         if(account1===''||password1==='') return message.warning('请输入账号和密码')
         admin.post('/adminLogin',{account:account1,password:password1}).then(res=>{
             window.sessionStorage.setItem('state',res.state)
+            message.success('登录称功')
             histroy.push('/admin')
         })
     }

@@ -3,6 +3,7 @@ import PageTitle from '../../../commonets/pageTitle';
 import { useEffect,useState} from 'react';
 import http from '../../../request';
 import formDate from '../../../methods/formDate';
+import { message } from 'antd';
 export default function AdminLogs() {
     const [datas,setDatas]=useState([]);
     const [context, setContext] = useState([]);
@@ -16,8 +17,8 @@ export default function AdminLogs() {
     }
     const send=()=>{
         http.post('/addLogs',{events:context}).then(res=>{
+            message.success('发布成功')
             getData();
-            console.log('success')
         })
     }
     useEffect(()=>{

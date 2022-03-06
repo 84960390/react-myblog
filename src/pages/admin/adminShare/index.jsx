@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import style from './index.module.scss';
 import { connect } from 'react-redux';
 import http from '../../../request';
-import admin from '../../../request/admin';
+// import admin from '../../../request/admin';
 import formDate from '../../../methods/formDate';
 import PageTitle from '../../../commonets/pageTitle';
+import { message } from 'antd';
 function AdminShare(props) {
     const [datas, setDates] = useState([]);
     const [context, setContext] = useState([]);
@@ -20,6 +21,7 @@ function AdminShare(props) {
     }
     const send=()=>{
         http.post('/addShare',{context}).then(res=>{
+            message.success('发布成功');
             getData();
             console.log('success')
         })

@@ -4,10 +4,11 @@ import Header from '../../commonets/header';
 import Footer from '../footer';
 import {MenuOutlined} from '@ant-design/icons/lib/icons'
 import HeaderRight from '../../commonets/headerRight';
-import { useState,useCallback} from 'react';
+import { useState,useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config';
 import ToLogin from '../../commonets/toLogin';
+import { Drawer } from 'antd';
   const  list=[{
         title:'发布文章',
         path:'/admin/addArticle'
@@ -33,17 +34,23 @@ import ToLogin from '../../commonets/toLogin';
 function Admin(props) {
   const histroy=useHistory();
   const [nowPath,setPath]=useState(histroy.location.pathname);
-  // 显示右侧tab栏
-  const [isHeaderShow,setHeaderShow]=useState(false);
-  // 改变右侧tab栏显示状态
-  const changeHeaderShow=useCallback(()=>{
-    setHeaderShow(!isHeaderShow)
-  },[isHeaderShow])
+  const [visible, setVisible] = useState(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+  const onClose = () => {
+    setVisible(false);
+  };
+  const drawer=useRef();
   return (
     <div className={style.container}>
       <Header nowPath={nowPath} setPath={setPath} list={list} indexURL='/admin'/>
-      {isHeaderShow&&<HeaderRight nowPath={nowPath} setPath={setPath} changeHeaderShow={changeHeaderShow} list={list} indexURL='/admin'/>}
-      <div className={style.openHeader} onClick={()=>changeHeaderShow()}><MenuOutlined /></div>
+      {/* 将抽屉挂载到该标签内部 */}
+      <div  className={style.drag} ref={drawer}></div>
+        <Drawer placement="right" getContainer={drawer.current} onClose={onClose} visible={visible} closable={false} width='100'>
+          <HeaderRight nowPath={nowPath} setPath={setPath} changeHeaderShow={onClose} list={list} />
+        </Drawer>
+      <div className={style.openHeader} onClick={showDrawer}><MenuOutlined /></div>
       <main>
         {window.sessionStorage.state&&window.sessionStorage.state==='success'?renderRoutes(props.route.routes):<ToLogin/>}
       </main>

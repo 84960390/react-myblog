@@ -9,6 +9,12 @@
           margin-top: 0;
       }
     }
+    .drag{
+      display: none;
+      @media screen and (max-width:700px){
+        display: block;
+      }
+    }
     .openHeader{
       display: none;
       position: fixed;
