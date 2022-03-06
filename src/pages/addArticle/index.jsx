@@ -53,7 +53,7 @@ class AddArticle extends Component {
         this.editor = new E('.edit');
         this.editor.config.showLinkImgHref = false;
         // 配置 server 接口地址
-        this.editor.config.uploadImgServer = 'api/file';
+        this.editor.config.uploadImgServer = '/api/file';
         // 代码高亮
         this.editor.highlight = hljs;
         // 是否允许图片链接

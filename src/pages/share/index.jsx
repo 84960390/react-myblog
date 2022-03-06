@@ -9,7 +9,7 @@ function Share(props) {
     // 获取数据
     const getData=()=>{
         http.get('/getAllShare').then(res=>{
-            setDates(res.data)
+           if(res.data) setDates(res.data)
         })
     }
     

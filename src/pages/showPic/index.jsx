@@ -23,7 +23,7 @@ function ShowPic(props){
     return (
         <div className='showPic'>
             <PageTitle title={getTitle()}/>
-            <div className="back" onClick={()=>props.history.push('/pictures')}><SwapLeftOutlined /></div>
+            <div className="back" onClick={()=>props.history.push('/userPage/pictures')}><SwapLeftOutlined /></div>
             <div className='box'> 
         <Image.PreviewGroup>
             {

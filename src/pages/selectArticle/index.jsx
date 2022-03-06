@@ -71,16 +71,16 @@ function SelectArticle() {
                 </div>
             </div>
             <div className="byTitle">
-                按标题名查看：<input value={inputTitle} onChange={e=>setInputTitle(e.target.value)}></input><button onClick={getDataByTitle}><SearchOutlined /></button>
+                <span className='tit'>按标题名称查找：</span><input value={inputTitle} onChange={e=>setInputTitle(e.target.value)} placeholder='输入标题名进行查找'></input><button onClick={getDataByTitle}><SearchOutlined /></button>
             </div>
             <div className="byDiscribe">
-                按文章内容查看<input value={inputDescribe} onChange={e=>setInputDescribe(e.target.value)}></input><button onClick={getDataByDescribe}><SearchOutlined /></button>
+                <span className='tit'>按文章内容查找：</span><input value={inputDescribe} onChange={e=>setInputDescribe(e.target.value)} placeholder='输入文章描述进行查找'></input><button onClick={getDataByDescribe}><SearchOutlined /></button>
             </div>
             <div className="content">
                 {
                     datas&&datas.length>0?datas.map(item => {
                         return (
-                            <div className='article' key={item.id} onClick={() => { histroy.push('/article?id=' + item.id) }}>
+                            <div className='article' key={item.id} onClick={() => { histroy.push('/userPage/article?id=' + item.id) }}>
                                 <div className='articleTitle'>{item.title}</div>
                                 <div className='articleContext'>{item.describes}</div>
                                 <div className='bottom'>

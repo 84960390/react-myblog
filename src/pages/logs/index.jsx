@@ -6,7 +6,9 @@ import formDate from '../../methods/formDate';
 export default function Logs() {
     const [datas,setDatas]=useState([]);
     useEffect(()=>{
-        http.get('/getLogs').then(res=>setDatas(res.data))
+        http.get('/getLogs').then(res=>{
+            if(res.data) setDatas(res.data)
+        })
     },[])
     return (
         <div className={style.logs}>

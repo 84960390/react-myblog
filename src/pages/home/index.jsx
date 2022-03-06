@@ -15,11 +15,11 @@ export default function Home() {
     useEffect(() => {
         http.get('/getAllArticle').then(res => {
             console.log(res)
-            setDatas(res.data)
+            if(res.data) setDatas(res.data)
         })
         http.get('/getStatics').then(res => {
             console.log(res)
-            setStatics(res.data)
+            if(res.data) setStatics(res.data)
         })
     }, [])
     // 计算类别总数，文章总数
@@ -48,9 +48,9 @@ export default function Home() {
             <div className={style.content}>
                 <div className={style.left}>
                     {
-                        datas.map(item => {
+                        datas&&datas.map(item => {
                             return (
-                                <div className={style.article} key={item.id} onClick={() => { histroy.push('/article?id=' + item.id) }}>
+                                <div className={style.article} key={item.id} onClick={() => { histroy.push('/userPage/article?id=' + item.id) }}>
                                     <div className={style.articleTitle}>{item.title}</div>
                                     <div className={style.articleContext}>{item.describes}</div>
                                     <div className={style.bottom}>
@@ -88,11 +88,11 @@ export default function Home() {
                     <div className={style.classify + ' ' + style.tagBox}>
                         <div className={style.box1}>
                             <div>文章</div>
-                            <div className={style.num}>{getSummarize.articleNum||0}</div>
+                            <div className={style.num}>{(getSummarize&&getSummarize.articleNum)||0}</div>
                         </div>
                         <div className={style.box1}>
                             <div>分类</div>
-                            <div className={style.num}>{getSummarize.category||0}</div>
+                            <div className={style.num}>{(getSummarize&&getSummarize.category)||0}</div>
                         </div>
 
                     </div>
