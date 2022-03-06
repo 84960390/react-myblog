@@ -26,6 +26,9 @@ import ToLogin from '../../commonets/toLogin';
     },{
         title:'关于',
         path:'/admin/about'
+    },,{
+        title:'首页',
+        path:'/'
     }]
 function Admin(props) {
   const histroy=useHistory();

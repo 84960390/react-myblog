@@ -24,7 +24,7 @@ function Login(){
                     <div className='put'><span>账号：</span><input type='text' placeholder='请输入管理员账号' ref={account}/></div>
                     <div className='put'><span>密码：</span><input type='password' placeholder='请输入密码' ref={psw}/></div>
                 </div>
-                <button onClick={login}>登录</button>
+                <div className="btns"><button onClick={()=>{histroy.push('/')}} className='btn1'>返回</button><button onClick={login}>登录</button></div>
             </div>
         </div>
     )

@@ -7,6 +7,10 @@ import HeaderRight from '../../commonets/headerRight';
 import { useState,useCallback} from 'react';
 import {useHistory} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config';
+  const  login={
+    title:'管理员登录',
+    path:'/login'
+  }
   const  list=[{
         title:'文章',
         path:'/userPage/selectArticle'
@@ -44,7 +48,7 @@ function UserPage(props) {
   return (
     <div className={style.container}>
       <Header nowPath={nowPath} setPath={setPath} list={list}/>
-      {isHeaderShow&&<HeaderRight nowPath={nowPath} setPath={setPath} changeHeaderShow={changeHeaderShow} list={list}/>}
+      {isHeaderShow&&<HeaderRight nowPath={nowPath} setPath={setPath} changeHeaderShow={changeHeaderShow} list={[...list,login]}/>}
       <div className={style.openHeader} onClick={()=>changeHeaderShow()}><MenuOutlined /></div>
       <main>
         {renderRoutes(props.route.routes)}
