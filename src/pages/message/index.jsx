@@ -5,6 +5,7 @@ import { Modal,message} from 'antd';
 import Response from './response';
 import http from '../../request';
 import PageTitle from '../../commonets/pageTitle';
+import Paginate from '../../commonets/paginate';
 export default function Message() {
     const [timeText, setTimeText] = useState('');
     const [myInfo,setMyInfo]=useState({
@@ -12,6 +13,7 @@ export default function Message() {
         name:'',
         context:''
     });
+    const [total,setTotal]=useState(10);
     const sendMessage=()=>{
         if(myInfo.context==='') return message.error('请输入要回复的内容')
         http.post('/addMessage',myInfo).then(res=>{
@@ -38,28 +40,31 @@ export default function Message() {
                 : '晚上好';
         setTimeText(timeText);
     }, []);
-    const getData=()=>{
-        http.get('/getAllMessage').then(res=>{
+    const getData=(page=1)=>{
+        http.get('/getAllMessage',{params:{page}}).then(res=>{
             setData(res.data)
+            setTotal(res.total||10)
         })
     }
     useEffect(()=>{
         getData()
     },[])
-    const addLog=(id)=>{
-        Modal.info({
-            centered:true,
-            icon:null,
-            content:<Response/>,
-            width:'80%',
-            bodyStyle:{
-                background:'rgb(35,35,44)',
-                padding:0,
-                margin:0,
-                // borderRadius:'20px'
-            }
-        })
+    const changePage=(page)=>{
+        getData(page)
     }
+    // const addLog=(id)=>{
+    //     Modal.info({
+    //         centered:true,
+    //         icon:null,
+    //         content:<Response/>,
+    //         width:'80%',
+    //         bodyStyle:{
+    //             background:'rgb(35,35,44)',
+    //             padding:0,
+    //             margin:0,
+    //         }
+    //     })
+    // }
     return (
         <div className="message">
             <PageTitle title="留言板"/>
@@ -116,6 +121,7 @@ export default function Message() {
                             )
                         })
                     }
+                    <Paginate total={total} onChange={changePage}/>
                 </div>
 
             </div>

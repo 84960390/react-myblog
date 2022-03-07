@@ -49,7 +49,7 @@ function SelectArticle() {
         })
     }
     useEffect(() => {
-        http.get('/getAllArticle').then(res => {
+        http.get('/getArticle').then(res => {
             console.log(res)
             setDatas(res.data)
         })

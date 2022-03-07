@@ -11,7 +11,7 @@ function Article() {
     const history=useHistory();
     useEffect(()=>{
         const id=qs.parse(history.location.search,{ignoreQueryPrefix:true}).id
-        http.get('/getArticle',{params:{id}}).then(res=>setData(res.data))
+        http.get('/getArticleById',{params:{id}}).then(res=>setData(res.data))
     },[])
     return (
         <div className="articles">

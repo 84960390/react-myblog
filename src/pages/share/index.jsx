@@ -4,15 +4,20 @@ import { connect } from 'react-redux';
 import http from '../../request';
 import formDate from '../../methods/formDate';
 import PageTitle from '../../commonets/pageTitle';
+import Paginate from '../../commonets/paginate';
 function Share(props) {
     const [datas, setDates] = useState([]);
+    const [total,setTotal]=useState(10);
     // 获取数据
-    const getData=()=>{
-        http.get('/getAllShare').then(res=>{
+    const getData=(page=1)=>{
+        http.get('/getAllShare',{params:{page}}).then(res=>{
            if(res.data) setDates(res.data)
+           setTotal(res.total||10)
         })
     }
-    
+    const changePage=(page)=>{
+        getData(page)
+    }
     useEffect(()=>{
         getData()
     },[])
@@ -36,6 +41,7 @@ function Share(props) {
                     </div>
                 )
             })}
+              <Paginate total={total} onChange={changePage}/>
             </div>
             
         </div>

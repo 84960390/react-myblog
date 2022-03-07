@@ -4,19 +4,25 @@ import { useHistory } from 'react-router-dom';
 import http from '../../request';
 import formDate from '../../methods/formDate';
 import { QqOutlined, WechatOutlined, GithubOutlined } from '@ant-design/icons';
+import Paginate from '../../commonets/paginate';
 import qqCode from './qrCode/qq.jpg';
 import wechatCode from './qrCode/wechat.jpg';
 import getRuntime from '../../methods/getRunTime';
 export default function Home() {
     const [datas, setDatas] = useState([]);
     const [statics, setStatics] = useState({});
+    const [total, setTotal] = useState(10);
     const histroy = useHistory();
-
-    useEffect(() => {
-        http.get('/getAllArticle').then(res => {
-            console.log(res)
-            if(res.data) setDatas(res.data)
+    const getArticleData=(page=1)=>{
+        http.get('/getArticle',{params:{page}}).then(res => {
+            if(res.data){
+                setDatas(res.data);
+                setTotal(res.total||10)
+            }
         })
+    }
+    useEffect(() => {
+        getArticleData();
         http.get('/getStatics').then(res => {
             console.log(res)
             if(res.data) setStatics(res.data)
@@ -38,6 +44,10 @@ export default function Home() {
         }
 
     },[statics])
+    const changePage=(page)=>{
+        getArticleData(page)
+        console.log(page)
+    }
     return (
         <div className={style.home}>
             <div className={style.welcome}>
@@ -61,7 +71,7 @@ export default function Home() {
                             )
                         })
                     }
-
+                           <Paginate total={total} onChange={changePage}/>
                 </div>
                 <div className={style.right}>
                     <div className={style.wel + ' ' + style.tagBox}>

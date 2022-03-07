@@ -6,24 +6,28 @@ import http from '../../../request';
 import formDate from '../../../methods/formDate';
 import PageTitle from '../../../commonets/pageTitle';
 import { message } from 'antd';
+import Paginate from '../../../commonets/paginate';
 function AdminShare(props) {
     const [datas, setDates] = useState([]);
     const [context, setContext] = useState([]);
+    const [total,setTotal]=useState(10);
+    const [currentPage,setCurrentPage]=useState(1);
     // 获取数据
-    const getData = () => {
-        http.get('/getAllShare').then(res => {
-
-            if (res.data){
-                setDates(res.data)
-                setContext('');
-            }
+    const getData=(page=1)=>{
+        http.get('/getAllShare',{params:{page}}).then(res=>{
+           if(res.data) setDates(res.data)
+           setTotal(res.total||10)
         })
+    }
+    const changePage=(page)=>{
+        getData(page)
     }
     const send=()=>{
         http.post('/addShare',{context}).then(res=>{
+            setContext('');
+            setCurrentPage(1);
             message.success('发布成功');
             getData();
-            console.log('success')
         })
     }
     useEffect(() => {
@@ -58,6 +62,7 @@ function AdminShare(props) {
                         </div>
                     )
                 })}
+                <Paginate total={total} onChange={changePage} current={currentPage}/>
             </div>
 
         </div>
