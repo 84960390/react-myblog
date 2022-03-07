@@ -1,14 +1,25 @@
 import './index.scss';
 import PageTitle from '../../commonets/pageTitle';
 import { Radio } from 'antd';
-import { useState, useCallback } from 'react';
-import { Upload, Button } from 'antd';
+import { useState} from 'react';
+import { Upload, Button,message} from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 export default function AddAlbum() {
     const [radio, setRadio] = useState('scenery');
     const changeRadio = (e) => {
         setRadio(e.target.value)
     }
+    const beforeUpload=file=> {
+        const isPNG=/^image/.test(file.type)
+        if (!isPNG) {
+          message.error('请上传常见图片文件格式');
+        }
+        const isLt10M = file.size / 1024 / 1024 < 10;
+        if (!isLt10M) {
+          message.error('上传的文件不能超过10MB');
+        }
+        return (isPNG&&isLt10M)|| Upload.LIST_IGNORE;
+      }
     return (
         <div className="addAlbum">
             <PageTitle title='发布图片' />
@@ -28,6 +39,8 @@ export default function AddAlbum() {
                         action="/api/addAlbum"
                         listType="picture"
                         data={{type:radio}}
+                        accept='image/*'
+                        beforeUpload={beforeUpload}
                     >
                         <Button  className="uploadBtn" icon={<UploadOutlined />}>Upload</Button>
                     </Upload>
