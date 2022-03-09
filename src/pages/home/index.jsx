@@ -1,6 +1,7 @@
 import style from './index.module.scss';
 import { useEffect, useState,useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import http from '../../request';
 import formDate from '../../methods/formDate';
 import { QqOutlined, WechatOutlined, GithubOutlined } from '@ant-design/icons';
@@ -8,9 +9,8 @@ import Paginate from '../../commonets/paginate';
 import qqCode from './qrCode/qq.jpg';
 import wechatCode from './qrCode/wechat.jpg';
 import getRuntime from '../../methods/getRunTime';
-export default function Home() {
+function Home(props) {
     const [datas, setDatas] = useState([]);
-    const [statics, setStatics] = useState({});
     const [total, setTotal] = useState(10);
     const histroy = useHistory();
     const getArticleData=(page=1)=>{
@@ -23,19 +23,15 @@ export default function Home() {
     }
     useEffect(() => {
         getArticleData();
-        http.get('/getStatics').then(res => {
-            console.log(res)
-            if(res.data) setStatics(res.data)
-        })
     }, [])
     // 计算类别总数，文章总数
     const getSummarize=useMemo(()=>{
         let sum=0;
         let category=0;
-        for(let k in statics){
+        for(let k in props.articleData){
             if(k!=='id'&&k!=='visit'&&k!=='create_time'){
                 category++;
-                sum=sum+statics[k]
+                sum=sum+props.articleData[k]
             }
         }
         return {
@@ -43,7 +39,7 @@ export default function Home() {
             category
         }
 
-    },[statics])
+    },[props.articleData])
     const changePage=(page)=>{
         getArticleData(page)
         console.log(page)
@@ -123,11 +119,11 @@ export default function Home() {
                     <div className={style.statics + ' ' + style.tagBox}>
                         <div className={style.sumBox}>
                             <div>总浏览量</div>
-                            <div>{statics.visit||0}次</div>
+                            <div>{props.articleData.visit||0}次</div>
                         </div>
                         <div className={style.sumBox}>
                             <div>运行时间</div>
-                            <div>{getRuntime(statics.create_time)||0}天</div>
+                            <div>{getRuntime(props.articleData.create_time)||0}天</div>
                         </div>
                     </div>
                 </div>
@@ -135,3 +131,8 @@ export default function Home() {
         </div>
     )
 }
+export default connect((state)=>{
+    return {
+        articleData:state.articleNum
+    }
+})(Home);

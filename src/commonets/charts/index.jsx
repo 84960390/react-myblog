@@ -1,11 +1,62 @@
 import { Component } from "react";
+import * as echarts from 'echarts';  
+import {connect} from 'react-redux';
+import './index.scss'                                                              
+import 'zrender/lib/svg/svg';          
 class Charts extends Component{
+    componentDidMount(){
+        const data=this.props.articleNum
+        let mychart = echarts.init(document.getElementById('charts'))                    
+        let option = {         
+            title: {                                                                                                         
+                text: '本站文章分布',                                                                                                                                                   
+                left: 'center',
+                textStyle:{
+                    color:'#fff'
+                }                                                                                     
+            },                                                                                                                                                                                                                
+        tooltip: {                                                                                                       
+            trigger: 'item'                                                                                           
+        },                                                                                                                 
+        legend: {                                                                                                                                                                                           
+            x: 'left', 
+            padding:[50, 30,0,0],
+            margin:'10px',
+            textStyle:{
+                color:'#fff'
+            }                                                                                               
+        },                                                                                                            
+        series: [                                                                                                      
+            {                                                                                                                                                                                         
+                type: 'pie',                                                                                           
+                radius: '50%',   
+                center : [ '50%', '60%' ],                                                                                 
+                data: [                                                                                                
+                    {value: data.javascript, name: 'javascript'},                                                   
+                    {value: data.css, name: 'css'},                                                     
+                    {value: data.shell, name: '框架'},                                                     
+                    {value: data.calculate, name: '算法'},                                                     
+                    {value: data.daily, name: '日常'}                                                      
+                ],                                                                                                                                                                                                           
+            }                                                                                                            
+        ]                                                                                                                
+          }                                                                                                              
+        option && mychart.setOption(option)    
+        window.onresize=mychart.resize;
+    }
+    componentWillUnmount(){
+        window.onresize=null
+    }
     render(){
         return (
-            <div id="chart">
+            <div id="charts">
 
             </div>
         )
     }
 }
-export default Charts
+export default connect((state)=>{
+    return {
+        articleNum:state.articleNum
+    }
+})(Charts);

@@ -3,6 +3,7 @@ import { Switch } from 'antd';
 import pic from './makabaka.jpeg';
 import { useState } from 'react';
 import PageTitle from '../../commonets/pageTitle';
+import Charts from '../../commonets/charts';
 export default function About() {
     const [showInfo, setShowInfo] = useState(true);
     const onChange = () => {
@@ -64,6 +65,7 @@ export default function About() {
                 {
                     !showInfo && (
                         <div className={style.stateBox}>
+                            <div className={style.chart}><Charts/></div>
                             <div className={style.title2}>📆关于本站</div>
                             <div className={style.stateInfo}>
                                 学习完react之后编写的练手项目，同时也为了分享自己的学习心得。
@@ -75,6 +77,7 @@ export default function About() {
                             <p>antDesign三方组件库</p>
                             <p>react全家桶（react,react-router,react-hooks）</p>
                             <p>状态集中管理工具Redux，react-redux</p>
+                            <p>echarts数据可视化</p>
                             <p>富文本编辑：wangEditor</p>
                             <div className={style.title3}>
                                 后端

@@ -2,9 +2,11 @@
 import style from './index.module.scss';
 import Header from '../../commonets/header';
 import Footer from '../footer';
+import { connect } from 'react-redux';
 import { MenuOutlined } from '@ant-design/icons/lib/icons'
+import http from '../../request';
 import HeaderRight from '../../commonets/headerRight';
-import { useState,useRef} from 'react';
+import { useState,useRef,useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { Drawer } from 'antd';
@@ -40,6 +42,7 @@ const list = [{
 function UserPage(props) {
   const histroy = useHistory();
   const [visible, setVisible] = useState(false);
+  
   const showDrawer = () => {
     setVisible(true);
   };
@@ -48,6 +51,12 @@ function UserPage(props) {
   };
   const [nowPath, setPath] = useState(histroy.location.pathname);
 const drawer=useRef();
+useEffect(() => {
+  http.get('/getStatics').then(res => {
+      console.log(res)
+      if(res.data) props.setArticleNum(res.data)
+  })
+}, [])
 
   return (
     <div className={style.container}>
@@ -67,4 +76,13 @@ const drawer=useRef();
   )
 }
 
-export default UserPage;
+export default connect(null,{
+  setArticleNum(data){
+      {
+          return {
+              type:'changeData',
+              data
+          }
+      }
+  }
+})(UserPage);
