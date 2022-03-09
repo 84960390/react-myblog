@@ -52,8 +52,9 @@ export default function Home() {
         <div className={style.home}>
             <div className={style.welcome}>
                 <div className={style.top}>欢迎</div>
-                <div className={style.tips}>进入我的博客,测试</div>
-                <p>目前为测试阶段，游客也可以上传图片和文章</p>
+                <div className={style.tips}>进入我的博客</div>
+                <span>目前为测试阶段，游客也可以上传图片和文章 </span>
+                <span>欢迎大家在测试期间进行留言，发布 ，提出意见</span>
             </div>
             <div className={style.content}>
                 <div className={style.left}>
@@ -74,9 +75,17 @@ export default function Home() {
                            <Paginate total={total} onChange={changePage}/>
                 </div>
                 <div className={style.right}>
-                    <div className={style.wel + ' ' + style.tagBox}>
-                        晚上好<br />
-                        欢迎来到我的个人博客
+                    <div className={style.wel + ' ' + style.tagBox} >
+                       <div className={style.message}>
+                        <div>
+                        欢<br/>
+                        迎<br/>
+                        浏<br/>
+                        览<br/>
+                        </div>
+                        </div>
+                        <div className={style.helloImg}>
+                        </div>
                     </div>
                     <div className={style.information + ' ' + style.tagBox}>
                         <a href='https://github.com/84960390' target='_blank'><div className={style.github}><GithubOutlined /></div></a>
@@ -105,6 +114,11 @@ export default function Home() {
                             <div className={style.num}>{(getSummarize&&getSummarize.category)||0}</div>
                         </div>
 
+                    </div>
+                    <div className={style.myNotice + ' ' + style.tagBox}>
+                           <div className={style.innerTxt}>
+                               冲冲冲！😎😎
+                               </div>
                     </div>
                     <div className={style.statics + ' ' + style.tagBox}>
                         <div className={style.sumBox}>
