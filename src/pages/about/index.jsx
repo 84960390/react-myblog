@@ -47,11 +47,6 @@ export default function About() {
                                     <td>2022年6月</td>
                                 </tr>
                                 <tr>
-                                    <td>主要技能</td>
-                                    <td>:</td>
-                                    <td>vue，react，express</td>
-                                </tr>
-                                <tr>
                                     <td>简介</td>
                                     <td>:</td>
                                     <td>落魄前端，在线求职</td>

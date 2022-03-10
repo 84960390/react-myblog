@@ -50,7 +50,7 @@ function Home(props) {
                 <div className={style.top}>欢迎</div>
                 <div className={style.tips}>进入我的博客</div>
                 <span>目前为测试阶段，游客也可以上传图片和文章 </span>
-                <span>欢迎大家在测试期间进行留言，发布 ，提出意见</span>
+                <span>欢迎大家在此期间进行留言，发布 ，提出意见</span>
             </div>
             <div className={style.content}>
                 <div className={style.left}>
