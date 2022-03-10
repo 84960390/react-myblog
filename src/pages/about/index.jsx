@@ -5,7 +5,7 @@ import { useState } from 'react';
 import PageTitle from '../../commonets/pageTitle';
 import Charts from '../../commonets/charts';
 export default function About() {
-    const [showInfo, setShowInfo] = useState(true);
+    const [showInfo, setShowInfo] = useState(false);
     const onChange = () => {
         setShowInfo(!showInfo)
     }
@@ -13,7 +13,7 @@ export default function About() {
         <div className={style.about}>
             <PageTitle title="关于"/>
             <div className={style.content}>
-                <div className={style.select}>关于本站  <Switch defaultChecked onChange={onChange} className={style.switch} /> 关于我</div>
+                <div className={style.select}>关于本站  <Switch onChange={onChange} className={style.switch} /> 关于我</div>
                 {
                     showInfo && (
                         <div className={style.myInfo}>
