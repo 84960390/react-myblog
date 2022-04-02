@@ -20,8 +20,8 @@ function App() {
       rain.style.width = '2px';
       rain.style.height = '50px';
       rain.style.borderRadius = '1px';
-      // rain.style.background = 'linear-gradient(rgba(187,255,255,.2), rgba(187,255,255,.6))';
-      rain.style.background = 'linear-gradient(rgba(255,238,210,.2), rgba(255,268,210,.6))';
+      rain.style.background = 'linear-gradient(rgba(187,255,255,.2), rgba(187,255,255,.6))';
+      // rain.style.background = 'linear-gradient(rgba(255,238,210,.2), rgba(255,268,210,.6))';
       rain.style.opacity = parseInt(1+Math.random()*9)/10;
       box.appendChild(rain);
       let race = 1;
