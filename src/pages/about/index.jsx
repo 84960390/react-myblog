@@ -13,7 +13,7 @@ export default function About() {
         <div className={style.about}>
             <PageTitle title="关于"/>
             <div className={style.content}>
-                <div className={style.select}>关于本站  <Switch defaultChecked onChange={onChange} className={style.switch} /> 关于我</div>
+                <div className={style.select}>关于本站  <Switch onChange={onChange} className={style.switch} /> 关于我</div>
                 {
                     showInfo && (
                         <div className={style.myInfo}>
@@ -45,11 +45,6 @@ export default function About() {
                                     <td>毕业时间</td>
                                     <td>:</td>
                                     <td>2022年6月</td>
-                                </tr>
-                                <tr>
-                                    <td>主要技能</td>
-                                    <td>:</td>
-                                    <td>vue，react，express</td>
                                 </tr>
                                 <tr>
                                     <td>简介</td>
