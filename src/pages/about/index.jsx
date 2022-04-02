@@ -5,7 +5,7 @@ import { useState } from 'react';
 import PageTitle from '../../commonets/pageTitle';
 import Charts from '../../commonets/charts';
 export default function About() {
-    const [showInfo, setShowInfo] = useState(true);
+    const [showInfo, setShowInfo] = useState(false);
     const onChange = () => {
         setShowInfo(!showInfo)
     }

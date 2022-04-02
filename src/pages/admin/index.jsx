@@ -28,7 +28,7 @@ import { Drawer } from 'antd';
         title:'关于',
         path:'/admin/about'
     },,{
-        title:'首页',
+        title:'返回用户界面',
         path:'/'
     }]
 function Admin(props) {
