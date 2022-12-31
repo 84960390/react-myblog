@@ -5,7 +5,7 @@
         height: 400px;
         padding: 10px;
         border-radius: 20px;
-        background-color: rgb(35,35,44);
+        background-color: $base_background_color;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -19,7 +19,7 @@
                 height: 300px;
         }
         h2{
-            color: #fff;
+            color: $primary_text_color;
         }
         .insert{
             display: flex;
@@ -29,7 +29,7 @@
             width: 80%;
             border-radius: 20px;
             padding: 30px;
-            background-color: rgb(19,19,26);
+            background-color: $dark_base_backgroud_color;
             .put{
                 display: flex;
                 input{

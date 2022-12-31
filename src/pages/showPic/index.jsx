@@ -6,7 +6,6 @@ import { SwapLeftOutlined } from '@ant-design/icons/lib/icons';
 import http from '../../request/index'
 import './index.scss';
 function ShowPic(props){
-    console.log(props)
     const [datas,setDatas]=useState([]);
     const getTitle=()=>{
         switch(props.match.params.type){

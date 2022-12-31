@@ -1,13 +1,13 @@
 import { renderRoutes } from 'react-router-config';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import routes from './router/index.js'
 import './App.scss';
+import Loading from './commonets/loading';
 function App() {
   useEffect(() => {
     let box = document.getElementById('rainBox');
     let boxHeight = box.clientHeight;
     let boxWidth = box.clientWidth;
-    console.log(box)
     window.onresize = function () {
       boxHeight = box.clientHeight;
       boxWidth = box.clientWidth;
@@ -22,7 +22,7 @@ function App() {
       rain.style.borderRadius = '1px';
       rain.style.background = 'linear-gradient(rgba(187,255,255,.2), rgba(187,255,255,.6))';
       // rain.style.background = 'linear-gradient(rgba(255,238,210,.2), rgba(255,268,210,.6))';
-      rain.style.opacity = parseInt(1+Math.random()*9)/10;
+      rain.style.opacity = parseInt(1 + Math.random() * 9) / 10;
       box.appendChild(rain);
       let race = 1;
       let h = 0;
@@ -34,7 +34,6 @@ function App() {
         }
         race++;
         h = parseInt(rain.style.top) + race;
-        console.log(h)
         rain.style.top = h + 'px';
       }, 20)
     }, 30)
@@ -45,7 +44,9 @@ function App() {
   return (
     <div id='entry'>
       <div id="rainBox"></div>
-      {renderRoutes(routes)}
+      <Suspense fallback={<Loading />}>
+        {renderRoutes(routes)}
+      </Suspense>
     </div>
 
   )

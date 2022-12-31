@@ -1,6 +1,6 @@
 .response {
     width: 100%;
-    color: #fff;
+    color: $primary_text_color;
     background-color: rgb(35,35,44);
     .sendMessage {
         height: 150px;
@@ -41,7 +41,7 @@
                     width: 40%;
                     &:hover {
                         div {
-                            background-color: rgb(97, 147, 187);
+                            background-color: $active_background_color;
                         }
                     }
                     div {

@@ -1,15 +1,16 @@
 
 import style from './index.module.scss';
-import Header from '../../commonets/header';
+import Header from '@/commonets/header';
 import Footer from '../footer';
 import { connect } from 'react-redux';
 import { MenuOutlined } from '@ant-design/icons/lib/icons'
-import http from '../../request';
-import HeaderRight from '../../commonets/headerRight';
-import { useState,useRef,useEffect} from 'react';
+import http from '@/request';
+import HeaderRight from '@/commonets/headerRight';
+import { useState, useRef, useEffect, Suspense } from 'react';
 import { useHistory } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { Drawer } from 'antd';
+import Loading from '@/commonets/loading';
 const login = {
   title: '管理员登录',
   path: '/login'
@@ -42,7 +43,7 @@ const list = [{
 function UserPage(props) {
   const histroy = useHistory();
   const [visible, setVisible] = useState(false);
-  
+
   const showDrawer = () => {
     setVisible(true);
   };
@@ -50,25 +51,27 @@ function UserPage(props) {
     setVisible(false);
   };
   const [nowPath, setPath] = useState(histroy.location.pathname);
-const drawer=useRef();
-useEffect(() => {
-  http.get('/getStatics').then(res => {
+  const drawer = useRef();
+  useEffect(() => {
+    http.get('/getStatics').then(res => {
       console.log(res)
-      if(res.data) props.setArticleNum(res.data)
-  })
-}, [])
+      if (res.data) props.setArticleNum(res.data)
+    })
+  }, [])
 
   return (
     <div className={style.container}>
       <Header nowPath={nowPath} setPath={setPath} list={list} />
-      <div  className={style.drag} ref={drawer}></div>
-        <Drawer placement="right" getContainer={drawer.current} onClose={onClose} visible={visible} closable={false} width='100'>
-          <HeaderRight nowPath={nowPath} setPath={setPath} changeHeaderShow={onClose} list={[...list, login]} />
-        </Drawer>
-      
+      <div className={style.drag} ref={drawer}></div>
+      <Drawer placement="right" getContainer={drawer.current} onClose={onClose} visible={visible} closable={false} width='100'>
+        <HeaderRight nowPath={nowPath} setPath={setPath} changeHeaderShow={onClose} list={[...list, login]} />
+      </Drawer>
+
       <div className={style.openHeader} onClick={() => showDrawer()}><MenuOutlined /></div>
       <main>
-        {renderRoutes(props.route.routes)}
+        <Suspense fallback={<Loading />}>
+          {renderRoutes(props.route.routes)}
+        </Suspense>
       </main>
       <Footer />
     </div>
@@ -76,13 +79,13 @@ useEffect(() => {
   )
 }
 
-export default connect(null,{
-  setArticleNum(data){
-      {
-          return {
-              type:'changeData',
-              data
-          }
+export default connect(null, {
+  setArticleNum(data) {
+    {
+      return {
+        type: 'changeData',
+        data
       }
+    }
   }
 })(UserPage);

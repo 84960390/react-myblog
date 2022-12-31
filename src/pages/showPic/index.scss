@@ -8,13 +8,13 @@
         left:30px;
         width: 36px;
         height: 36px;
-        background-color: rgb(35,35,44);
+        background-color: $base_background_color;
         border-radius: 10px;
-        @media screen and (max-width: 700px) {
-            display: none;
-        }
+        // @media screen and (max-width: 700px) {
+        //     display: none;
+        // }
         &:hover{
-            background-color: rgb(97,147,187);
+            background-color: $active_background_color;
         }
     }
     .box{
@@ -23,7 +23,7 @@
         padding: 30px 20px 10px;
         margin: 0 auto;
         border-radius: 20px;
-        background-color: rgb(35, 35, 44);
+        background-color: $base_background_color;
         min-height: 300px;
         display: flex;
         flex-wrap: wrap;

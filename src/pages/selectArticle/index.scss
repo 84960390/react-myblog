@@ -18,13 +18,13 @@
                 flex-wrap: wrap;
                 .tagItem{
                     padding: 3px 10px;
-                    background-color: rgb(35,35,44);
+                    background-color: $base_background_color;
                     margin-right: 5px;
                     border-radius: 5px;
                     margin-bottom: 10px;
                     cursor: pointer;
                     &:hover{
-                        background-color: rgb(108,145,185);
+                        background-color: $active_background_color;
                     }
                 }
             }
@@ -43,7 +43,7 @@
                 outline: none;
                 border: none;
                 padding-left: 6px;
-                background-color: rgb(19,19,26);
+                background-color: $dark_base_backgroud_color;
                 height: 40px;
                 width: 70%;
                 @media screen and (max-width:700px){
@@ -68,7 +68,7 @@
             padding: 30px 20px 10px;
             margin: 0 auto;
             border-radius:20px;
-            background-color: rgb(35,35,44);
+            background-color: $base_background_color;
             min-height: 300px;
             .article{
                 display: flex;
@@ -78,14 +78,14 @@
                 padding: 10px;
                 min-height: 100px;
                 margin-bottom: 25px;
-                background-color: rgb(19,19,26);
+                background-color: $dark_base_backgroud_color;
                 border-radius: 20px;
                 transition: all 0.5s;
                 &:hover{
                 transform: scale(102%);
                 }
                 .articleTitle{
-                    color: #fff;
+                    color: $primary_text_color;
                     line-height: 40px;
                     height: 40px;
                     text-align: center;
@@ -114,10 +114,10 @@
                     .type{
                         height: 100%;
                         padding: 5px 10px;
-                        background-color: rgb(35,35,44);
+                        background-color: $shallow_base_backgroud_color;
                         border-radius: 10px;
                         &:hover{
-                            background-color: rgb(97,147,187);
+                            background-color: $active_background_color;
                         }
                     }
                     .time{

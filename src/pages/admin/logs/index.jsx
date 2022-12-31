@@ -1,8 +1,8 @@
 import style from './index.module.scss';
-import PageTitle from '../../../commonets/pageTitle';
+import PageTitle from '@/commonets/pageTitle';
 import { useEffect,useState} from 'react';
-import http from '../../../request';
-import formDate from '../../../methods/formDate';
+import http from '@/request';
+import formDate from '@/methods/formDate';
 import { message } from 'antd';
 export default function AdminLogs() {
     const [datas,setDatas]=useState([]);

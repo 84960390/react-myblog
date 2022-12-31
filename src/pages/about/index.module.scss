@@ -6,7 +6,7 @@
         padding: 30px 20px 10px;
         margin: 0 auto;
         border-radius: 20px;
-        background-color: rgb(35, 35, 44);
+        background-color: $base_background_color;
         min-height: 300px;
         @media screen and (max-width: 700px) {
             width: 100%;
@@ -23,9 +23,9 @@
             .switch {
                 width: 50px;
                 margin: 0 10px;
-                background-color: rgb(19, 19, 26);
+                background-color: $dark_base_backgroud_color;
                 :global(.ant-switch-handle::before) {
-                    background-color: rgb(69, 69, 88);
+                    background-color: $shallow_base_backgroud_color;
                     transform: scale(130%);
                 }
             }
@@ -72,7 +72,7 @@
                 margin-bottom: 10px;
                 font-weight: 500;
                 font-size: 14px;
-                color: #6193bb;
+                color: $active_background_color;
             }
             p{  
                 padding-left: 20px;

@@ -11,7 +11,7 @@
         padding: 30px 20px 10px;
         margin: 0 auto;
         border-radius:20px;
-        background-color: rgb(35,35,44);
+        background-color: $base_background_color;
         min-height: 300px;
         .shareItem{
             display: flex;
@@ -35,7 +35,7 @@
                     word-break: break-all;
                     box-sizing: border-box;
                     padding: 10px 20px;
-                    background-color: rgb(19,19,26);
+                    background-color: $dark_base_backgroud_color;
                     transition: all 0.4s;
                     border-radius: 10px;
                     &:hover{
@@ -56,9 +56,9 @@
                             border-radius: 10px;
                             text-align: center;
                             width: 130px;
-                            background-color: rgb(70,69,88);
+                            background-color: $shallow_base_backgroud_color;
                             &:hover{
-                                background-color: rgb(103,146,186);
+                                background-color: $active_background_color;
                             }
                         }
                     }

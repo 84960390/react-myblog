@@ -6,7 +6,7 @@
         padding: 30px 20px 10px;
         margin: 0 auto;
         border-radius:20px;
-        background-color: rgb(35,35,44);
+        background-color: $base_background_color;
         min-height: 300px;
         color: #000;
         @media screen and (max-width:700px) {
@@ -14,7 +14,7 @@
             padding-left: 10px;
         }
         h2{
-            color: #fff;
+            color: $primary_text_color;
             text-align: center;
             margin-bottom: 10px;
         }
@@ -23,7 +23,7 @@
             overflow: hidden;
         }
         .inputTitle{
-            color: #fff;
+            color: $primary_text_color;
             height: 30px;
             line-height: 30px;
         }
@@ -32,7 +32,7 @@
             .radio{
                 margin: 10px 0;
                 span{
-                    color: #fff;
+                    color: $primary_text_color;
                 }
             }
             .title1{
@@ -69,18 +69,18 @@
         .send{
             margin: 20px 0;
             height: 26px;
-           color:#fff;
+           color:$primary_text_color;
            text-align: center;
             button{
                 outline: none;
                 border: none;
                 width: 70px;
                 height: 100%;
-                background-color: rgb(69,69,88);
+                background-color: $shallow_base_backgroud_color;
                 border-radius: 8px;
                 // float: right;
                 &:hover{
-                    background-color: rgb(97,147,187);
+                    background-color: $active_background_color;
                 }
             }
         }

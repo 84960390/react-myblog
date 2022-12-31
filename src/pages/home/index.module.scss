@@ -8,7 +8,7 @@
         display: flex;
         flex-direction: column;
         justify-content:center;
-        color:#fff;
+        color:$primary_text_color;
         font-weight: 500;
         align-items:center;
         .top{
@@ -35,14 +35,14 @@
                 padding: 10px;
                 min-height: 100px;
                 margin-bottom: 25px;
-                background-color: rgb(35,35,44);
+                background-color: $base_background_color;
                 border-radius: 20px;
                 transition: all 0.5s;
                 &:hover{
                 transform: scale(102%);
                 }
                 .articleTitle{
-                    color: #fff;
+                    color: $primary_text_color;
                     line-height: 40px;
                     height: 40px;
                     text-align: center;
@@ -71,10 +71,10 @@
                     .type{
                         height: 100%;
                         padding: 5px 10px;
-                        background-color: rgb(19,19,26);
+                        background-color: $dark_base_backgroud_color;
                         border-radius: 10px;
                         &:hover{
-                            background-color: rgb(97,147,187);
+                            background-color: $active_background_color;
                         }
                     }
                     .time{
@@ -92,7 +92,7 @@
             .tagBox{
                 box-sizing: border-box;
                 margin-bottom: 25px;
-                background-color: rgb(35,35,44);
+                background-color: $base_background_color;
                 border-radius: 20px;
                 transition: all 0.5s;
                 padding: 10px;
@@ -115,7 +115,7 @@
                 }
                 .helloImg{
                     width: 80%;
-                    background: url(../../../public/hello.gif) no-repeat center center rgb(35,35,44);
+                    background: url(../../assets/hello.gif) no-repeat center center $base_background_color;
                     background-size: 150%;
                 }
             }
@@ -132,9 +132,9 @@
                 .github{
                     width: 40px;
                     height: 40px;
-                    color: #fff;
+                    color: $primary_text_color;
                     &:hover{
-                        background-color: rgb(97,147,187);
+                        background-color: $active_background_color;
                         border-radius: 10px;
                     }
                 
@@ -158,7 +158,7 @@
                     padding: 10px;
                     width: 150px;
                     height: 150px;
-                    background-color: rgb(95,145,184);
+                    background-color: $active_background_color;
                     border-radius: 20px;
                     transition: all 1s;
                     transform: translateX(-50%);
@@ -182,7 +182,7 @@
                     flex-direction: column;
                     justify-content: center;
                     .num{
-                        color: rgb(97,147,187);
+                        color: $active_background_color;
                     }
                 }
                 

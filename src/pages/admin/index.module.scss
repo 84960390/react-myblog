@@ -26,10 +26,10 @@
       height: 38px;
       line-height: 38px;
       text-align: center;
-      color: #fff;
+      color: $primary_text_color;
       transition: all .3s;
       &:hover{
-        background-color: rgb(97,147,187);
+        background-color: $active_background_color;
       }
       @media screen and (max-width:700px){
         display: block;

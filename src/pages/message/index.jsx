@@ -96,7 +96,7 @@ export default function Message() {
                                     <div className="info">
                                         <div className="name">{item.name}</div>
                                         {/* ()=>addLog(item.id) */}
-                                        <div className="message" onClick={()=>alert('该功能正在开发中')}><MessageOutlined/></div>
+                                        <div className="message" onClick={()=>alert('回复功能暂不可用')}><MessageOutlined/></div>
                                     </div>
                                     <p className='context'>{item.context}</p>
                                     {

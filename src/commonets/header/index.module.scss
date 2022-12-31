@@ -1,45 +1,45 @@
-header{
-    
-    @media screen and (max-width:700px) {
+header {
+    @media screen and (max-width: 700px) {
         display: none;
     }
+    display: flex;
     position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
     box-shadow: 0 0 18px #000;
-    transition: all .3s;
+    transition: all 0.3s;
     width: 100%;
-    height: 44px;
-    background-color: #23232c;
-    display: flex;
-    color: #fff;
+    height: $header_height;
+    background-color: $base_background_color;
+
+    color: $primary_text_color;
     line-height: 44px;
-    .left{
+    .left {
         width: 20%;
         text-align: center;
         font-size: 20px;
     }
-    .center{
+    .center {
         flex: 1;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        .list{
+        .list {
             height: 30px;
             padding: 0 12px;
             line-height: 30px;
-            &.active{
-                background-color: rgb(103,146,186);
+            &.active {
+                background-color: $active_background_color;
                 border-radius: 10px;
             }
-            &:hover{
-                background-color: rgb(103,146,186);
+            &:hover {
+                background-color: $active_background_color;
                 border-radius: 10px;
             }
         }
     }
-    .right{
+    .right {
         width: 20%;
         font-size: 20px;
         text-align: center;

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import style from './index.module.scss';
 import { connect } from 'react-redux';
-import http from '../../../request';
+import http from '@/request';
 // import admin from '../../../request/admin';
-import formDate from '../../../methods/formDate';
-import PageTitle from '../../../commonets/pageTitle';
+import formDate from '@/methods/formDate';
+import PageTitle from '@/commonets/pageTitle';
 import { message } from 'antd';
-import Paginate from '../../../commonets/paginate';
+import Paginate from '@/commonets/paginate';
 function AdminShare(props) {
     const [datas, setDates] = useState([]);
     const [context, setContext] = useState([]);
