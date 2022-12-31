@@ -105,13 +105,14 @@
                 .send {
                     height: 26px;
 
-                    button {
-                        outline: none;
-                        border: none;
-                        width: 70px;
-                        height: 100%;
+                    .btn {
+                        // outline: none;
+                        // border: none;
+                        // width: 70px;
+                        // height: 100%;
+                        color: $primary_text_color;
                         background-color: $shallow_base_backgroud_color;
-                        border-radius: 8px;
+                        border-radius: 4px;
                         float: right;
                         &:hover {
                             background-color: $active_background_color;
