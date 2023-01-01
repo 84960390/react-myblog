@@ -6,10 +6,14 @@ import Loading from './commonets/loading';
 const App = () => {
   useEffect(() => {
     const box = document.getElementById('rainBox');
-    let boxHeight = document.body.clientHeight;
+    let boxHeight = box.clientHeight;
     const resize = () => {
-      boxHeight = document.body.clientHeight;
+      boxHeight = box.clientHeight;
     }
+    // ios端初次高度获取错误
+    setTimeout(() => {
+      resize();
+    }, 3000);
     // 雨水池
     let rainPool = [];
     let timer1 = setInterval(() => {    //每30ms新增一滴雨水;
