@@ -6,9 +6,9 @@ import Loading from './commonets/loading';
 const App = () => {
   useEffect(() => {
     const box = document.getElementById('rainBox');
-    let boxHeight = box.clientHeight;
+    let boxHeight = document.body.clientHeight;
     const resize = () => {
-      boxHeight = box.clientHeight;
+      boxHeight = document.body.clientHeight;
     }
     // 雨水池
     let rainPool = [];
