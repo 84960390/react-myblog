@@ -1,15 +1,13 @@
 import { Component } from "react";
-import E from 'wangeditor'
-import hljs from 'highlight.js'
-import 'highlight.js/styles/monokai-sublime.css';
+import E from 'wangeditor';
+import hljs from 'highlight.js';
 import http from '../../request';
 import { Radio, message, Button } from 'antd';
-import './index.scss'
+import './index.scss';
 import PageTitle from "../../commonets/pageTitle";
 class AddArticle extends Component {
     constructor() {
         super();
-
         this.editor = null;
     }
     state = {
