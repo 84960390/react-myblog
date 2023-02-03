@@ -10,7 +10,10 @@ const App = () => {
     const resize = () => {
       boxHeight = box.clientHeight;
     }
-
+    //ios初次进入页面时，高度获取错误
+    setTimeout(() => {
+      boxHeight = box.clientHeight;
+    }, 3000);
     // 雨水池
     let rainPool = [];
     let timer1 = setInterval(() => {    //每30ms新增一滴雨水;
