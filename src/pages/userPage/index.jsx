@@ -54,7 +54,6 @@ function UserPage(props) {
   const drawer = useRef();
   useEffect(() => {
     http.get('/getStatics').then(res => {
-      console.log(res)
       if (res.data) props.setArticleNum(res.data)
     })
   }, [])
